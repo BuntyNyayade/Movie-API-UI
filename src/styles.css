@@ -2,3 +2,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ── Global Neon-Black Theme Base ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: #000;
+  color: #fff;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Page padding so content isn't hidden behind the fixed navbar */
+body {
+  padding-top: 68px;
+}
+
+/* Custom scrollbar to match the neon theme */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(0, 255, 200, 0.35);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 255, 200, 0.65);
+}
+
+/* Selection highlight */
+::selection {
+  background: rgba(0, 255, 200, 0.25);
+  color: #fff;
+}
