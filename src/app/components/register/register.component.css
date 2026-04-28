@@ -14,41 +14,80 @@
   padding-top: 80px;
 }
 
-/* Animated neon grid background */
+/* Subtle neon grid overlay */
 .register-page::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(0, 255, 200, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 200, 0.04) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: gridMove 8s linear infinite;
+    linear-gradient(rgba(0, 255, 200, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 200, 0.03) 1px, transparent 1px);
+  background-size: 55px 55px;
+  animation: gridScroll 10s linear infinite;
+  z-index: 0;
 }
 
-/* Neon glow orbs */
-.register-page::after {
-  content: '';
+@keyframes gridScroll {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(55px); }
+}
+
+/* ═══════════════════════════════════
+   ── Bubbles ──
+═══════════════════════════════════ */
+.bubbles-container {
   position: absolute;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(0, 255, 200, 0.07) 0%, transparent 70%);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -160px;
   border-radius: 50%;
-  animation: pulse 4s ease-in-out infinite;
+  opacity: 0;
+  animation: floatUp linear infinite;
 }
 
-@keyframes gridMove {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(50px); }
+/* Each bubble gets unique size, position, color, delay and duration */
+.bubble:nth-child(1)  { width: 35px;  height: 35px;  left: 5%;   background: radial-gradient(circle at 35% 35%, rgba(0,255,200,0.55), rgba(0,255,200,0.05)); box-shadow: 0 0 12px rgba(0,255,200,0.5),  inset 0 0 8px rgba(0,255,200,0.2);  animation-duration: 9s;  animation-delay: 0s;   }
+.bubble:nth-child(2)  { width: 20px;  height: 20px;  left: 12%;  background: radial-gradient(circle at 35% 35%, rgba(0,200,255,0.55), rgba(0,200,255,0.05)); box-shadow: 0 0 10px rgba(0,200,255,0.5),  inset 0 0 6px rgba(0,200,255,0.2);  animation-duration: 7s;  animation-delay: 1.5s; }
+.bubble:nth-child(3)  { width: 55px;  height: 55px;  left: 20%;  background: radial-gradient(circle at 35% 35%, rgba(168,85,247,0.45), rgba(168,85,247,0.05)); box-shadow: 0 0 18px rgba(168,85,247,0.5), inset 0 0 10px rgba(168,85,247,0.2); animation-duration: 12s; animation-delay: 0.5s; }
+.bubble:nth-child(4)  { width: 15px;  height: 15px;  left: 30%;  background: radial-gradient(circle at 35% 35%, rgba(0,255,200,0.6),  rgba(0,255,200,0.05)); box-shadow: 0 0 8px  rgba(0,255,200,0.6),  inset 0 0 5px rgba(0,255,200,0.2);  animation-duration: 6s;  animation-delay: 2s;   }
+.bubble:nth-child(5)  { width: 45px;  height: 45px;  left: 40%;  background: radial-gradient(circle at 35% 35%, rgba(0,200,255,0.5),  rgba(0,200,255,0.05)); box-shadow: 0 0 16px rgba(0,200,255,0.5),  inset 0 0 8px rgba(0,200,255,0.2);  animation-duration: 10s; animation-delay: 3s;   }
+.bubble:nth-child(6)  { width: 25px;  height: 25px;  left: 52%;  background: radial-gradient(circle at 35% 35%, rgba(0,255,200,0.5),  rgba(0,255,200,0.05)); box-shadow: 0 0 12px rgba(0,255,200,0.5),  inset 0 0 6px rgba(0,255,200,0.2);  animation-duration: 8s;  animation-delay: 0.8s; }
+.bubble:nth-child(7)  { width: 65px;  height: 65px;  left: 62%;  background: radial-gradient(circle at 35% 35%, rgba(168,85,247,0.4),  rgba(168,85,247,0.05)); box-shadow: 0 0 22px rgba(168,85,247,0.5), inset 0 0 12px rgba(168,85,247,0.2); animation-duration: 14s; animation-delay: 1s;   }
+.bubble:nth-child(8)  { width: 18px;  height: 18px;  left: 70%;  background: radial-gradient(circle at 35% 35%, rgba(0,200,255,0.6),  rgba(0,200,255,0.05)); box-shadow: 0 0 10px rgba(0,200,255,0.6),  inset 0 0 6px rgba(0,200,255,0.2);  animation-duration: 6.5s;animation-delay: 4s;   }
+.bubble:nth-child(9)  { width: 40px;  height: 40px;  left: 78%;  background: radial-gradient(circle at 35% 35%, rgba(0,255,200,0.5),  rgba(0,255,200,0.05)); box-shadow: 0 0 14px rgba(0,255,200,0.5),  inset 0 0 8px rgba(0,255,200,0.2);  animation-duration: 11s; animation-delay: 2.5s; }
+.bubble:nth-child(10) { width: 22px;  height: 22px;  left: 87%;  background: radial-gradient(circle at 35% 35%, rgba(168,85,247,0.55), rgba(168,85,247,0.05)); box-shadow: 0 0 10px rgba(168,85,247,0.5), inset 0 0 6px rgba(168,85,247,0.2); animation-duration: 7.5s;animation-delay: 1.2s; }
+.bubble:nth-child(11) { width: 50px;  height: 50px;  left: 93%;  background: radial-gradient(circle at 35% 35%, rgba(0,200,255,0.45), rgba(0,200,255,0.05)); box-shadow: 0 0 18px rgba(0,200,255,0.5),  inset 0 0 10px rgba(0,200,255,0.2); animation-duration: 13s; animation-delay: 0.3s; }
+.bubble:nth-child(12) { width: 12px;  height: 12px;  left: 8%;   background: radial-gradient(circle at 35% 35%, rgba(0,255,200,0.7),  rgba(0,255,200,0.05)); box-shadow: 0 0 8px  rgba(0,255,200,0.7),  inset 0 0 4px rgba(0,255,200,0.3);  animation-duration: 5.5s;animation-delay: 3.5s; }
+.bubble:nth-child(13) { width: 30px;  height: 30px;  left: 35%;  background: radial-gradient(circle at 35% 35%, rgba(168,85,247,0.5),  rgba(168,85,247,0.05)); box-shadow: 0 0 12px rgba(168,85,247,0.5), inset 0 0 8px rgba(168,85,247,0.2); animation-duration: 9.5s;animation-delay: 5s;   }
+.bubble:nth-child(14) { width: 58px;  height: 58px;  left: 56%;  background: radial-gradient(circle at 35% 35%, rgba(0,255,200,0.35), rgba(0,255,200,0.05)); box-shadow: 0 0 20px rgba(0,255,200,0.4),  inset 0 0 12px rgba(0,255,200,0.15); animation-duration: 15s; animation-delay: 2.2s; }
+.bubble:nth-child(15) { width: 16px;  height: 16px;  left: 75%;  background: radial-gradient(circle at 35% 35%, rgba(0,200,255,0.65), rgba(0,200,255,0.05)); box-shadow: 0 0 8px  rgba(0,200,255,0.65), inset 0 0 5px rgba(0,200,255,0.2);  animation-duration: 6s;  animation-delay: 4.5s; }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(30px) scale(1.1);
+    opacity: 0;
+  }
 }
 
-@keyframes pulse {
-  0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-  50% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
-}
+/* Wobble drift on each bubble */
+.bubble:nth-child(odd)  { animation-timing-function: ease-in-out; }
+.bubble:nth-child(even) { animation-timing-function: linear; }
 
 /* ── Form Card ── */
 .register-card {
@@ -56,12 +95,12 @@
   z-index: 10;
   width: 100%;
   max-width: 440px;
-  background: rgba(5, 5, 15, 0.85);
+  background: rgba(5, 5, 15, 0.8);
   border: 1px solid rgba(0, 255, 200, 0.18);
   border-radius: 20px;
   padding: 2.5rem 2rem;
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
   box-shadow:
     0 0 0 1px rgba(0, 255, 200, 0.05),
     0 0 40px rgba(0, 255, 200, 0.08),
@@ -70,11 +109,11 @@
 }
 
 @keyframes cardIn {
-  from { opacity: 0; transform: translateY(30px) scale(0.97); }
+  from { opacity: 0; transform: translateY(32px) scale(0.97); }
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Corner glow accent */
+/* Top neon accent line */
 .register-card::before {
   content: '';
   position: absolute;
@@ -213,7 +252,7 @@
   left: 130%;
 }
 .btn-register:hover {
-  box-shadow: 0 0 40px rgba(0, 255, 200, 0.65), 0 0 80px rgba(0, 200, 255, 0.2);
+  box-shadow: 0 0 40px rgba(0, 255, 200, 0.65), 0 0 80px rgba(0, 200, 255, 0.25);
   transform: translateY(-2px);
 }
 .btn-register:active {
