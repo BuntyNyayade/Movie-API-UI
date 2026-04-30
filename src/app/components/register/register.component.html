@@ -27,7 +27,7 @@
     <p class="register-subtitle">Create your account to get started</p>
 
     <!-- Form -->
-    <form [formGroup]="registerForm">
+    <form [formGroup]="registerForm"  (ngSubmit)="register()">
 
       <!-- Inline Notification -->
       <div *ngIf="inlineNotification.show" class="inline-notification">

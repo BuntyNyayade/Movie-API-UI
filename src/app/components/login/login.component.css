@@ -1,0 +1,277 @@
+/* ── Neon Register Form ── */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@300;400;500;600&display=swap');
+
+/* ── Page Wrapper ── */
+.register-page {
+  min-height: 30vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Inter', sans-serif;
+  padding-top: 30px;
+}
+
+/* Subtle neon grid overlay */
+.register-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 255, 200, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 200, 0.03) 1px, transparent 1px);
+  background-size: 55px 55px;
+  animation: gridScroll 10s linear infinite;
+  z-index: 0;
+}
+
+@keyframes gridScroll {
+  0%   { transform: translateY(0); }
+  100% { transform: translateY(55px); }
+}
+
+/* ═══════════════════════════════════
+   ── Bubbles ──
+═══════════════════════════════════ */
+.bubbles-container {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.bubble {
+  position: absolute;
+  bottom: -160px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: floatUp linear infinite;
+}
+
+/* Each bubble gets unique size, position, color, delay and duration */
+.bubble:nth-child(1)  { width: 35px;  height: 35px;  left: 5%;   background: radial-gradient(circle at 35% 35%, rgba(0,255,200,0.55), rgba(0,255,200,0.05)); box-shadow: 0 0 12px rgba(0,255,200,0.5),  inset 0 0 8px rgba(0,255,200,0.2);  animation-duration: 9s;  animation-delay: 0s;   }
+.bubble:nth-child(2)  { width: 20px;  height: 20px;  left: 12%;  background: radial-gradient(circle at 35% 35%, rgba(0,200,255,0.55), rgba(0,200,255,0.05)); box-shadow: 0 0 10px rgba(0,200,255,0.5),  inset 0 0 6px rgba(0,200,255,0.2);  animation-duration: 7s;  animation-delay: 1.5s; }
+.bubble:nth-child(3)  { width: 55px;  height: 55px;  left: 20%;  background: radial-gradient(circle at 35% 35%, rgba(168,85,247,0.45), rgba(168,85,247,0.05)); box-shadow: 0 0 18px rgba(168,85,247,0.5), inset 0 0 10px rgba(168,85,247,0.2); animation-duration: 12s; animation-delay: 0.5s; }
+.bubble:nth-child(4)  { width: 15px;  height: 15px;  left: 30%;  background: radial-gradient(circle at 35% 35%, rgba(0,255,200,0.6),  rgba(0,255,200,0.05)); box-shadow: 0 0 8px  rgba(0,255,200,0.6),  inset 0 0 5px rgba(0,255,200,0.2);  animation-duration: 6s;  animation-delay: 2s;   }
+.bubble:nth-child(5)  { width: 45px;  height: 45px;  left: 40%;  background: radial-gradient(circle at 35% 35%, rgba(0,200,255,0.5),  rgba(0,200,255,0.05)); box-shadow: 0 0 16px rgba(0,200,255,0.5),  inset 0 0 8px rgba(0,200,255,0.2);  animation-duration: 10s; animation-delay: 3s;   }
+.bubble:nth-child(6)  { width: 25px;  height: 25px;  left: 52%;  background: radial-gradient(circle at 35% 35%, rgba(0,255,200,0.5),  rgba(0,255,200,0.05)); box-shadow: 0 0 12px rgba(0,255,200,0.5),  inset 0 0 6px rgba(0,255,200,0.2);  animation-duration: 8s;  animation-delay: 0.8s; }
+.bubble:nth-child(7)  { width: 65px;  height: 65px;  left: 62%;  background: radial-gradient(circle at 35% 35%, rgba(168,85,247,0.4),  rgba(168,85,247,0.05)); box-shadow: 0 0 22px rgba(168,85,247,0.5), inset 0 0 12px rgba(168,85,247,0.2); animation-duration: 14s; animation-delay: 1s;   }
+.bubble:nth-child(8)  { width: 18px;  height: 18px;  left: 70%;  background: radial-gradient(circle at 35% 35%, rgba(0,200,255,0.6),  rgba(0,200,255,0.05)); box-shadow: 0 0 10px rgba(0,200,255,0.6),  inset 0 0 6px rgba(0,200,255,0.2);  animation-duration: 6.5s;animation-delay: 4s;   }
+.bubble:nth-child(9)  { width: 40px;  height: 40px;  left: 78%;  background: radial-gradient(circle at 35% 35%, rgba(0,255,200,0.5),  rgba(0,255,200,0.05)); box-shadow: 0 0 14px rgba(0,255,200,0.5),  inset 0 0 8px rgba(0,255,200,0.2);  animation-duration: 11s; animation-delay: 2.5s; }
+.bubble:nth-child(10) { width: 22px;  height: 22px;  left: 87%;  background: radial-gradient(circle at 35% 35%, rgba(168,85,247,0.55), rgba(168,85,247,0.05)); box-shadow: 0 0 10px rgba(168,85,247,0.5), inset 0 0 6px rgba(168,85,247,0.2); animation-duration: 7.5s;animation-delay: 1.2s; }
+.bubble:nth-child(11) { width: 50px;  height: 50px;  left: 93%;  background: radial-gradient(circle at 35% 35%, rgba(0,200,255,0.45), rgba(0,200,255,0.05)); box-shadow: 0 0 18px rgba(0,200,255,0.5),  inset 0 0 10px rgba(0,200,255,0.2); animation-duration: 13s; animation-delay: 0.3s; }
+.bubble:nth-child(12) { width: 12px;  height: 12px;  left: 8%;   background: radial-gradient(circle at 35% 35%, rgba(0,255,200,0.7),  rgba(0,255,200,0.05)); box-shadow: 0 0 8px  rgba(0,255,200,0.7),  inset 0 0 4px rgba(0,255,200,0.3);  animation-duration: 5.5s;animation-delay: 3.5s; }
+.bubble:nth-child(13) { width: 30px;  height: 30px;  left: 35%;  background: radial-gradient(circle at 35% 35%, rgba(168,85,247,0.5),  rgba(168,85,247,0.05)); box-shadow: 0 0 12px rgba(168,85,247,0.5), inset 0 0 8px rgba(168,85,247,0.2); animation-duration: 9.5s;animation-delay: 5s;   }
+.bubble:nth-child(14) { width: 58px;  height: 58px;  left: 56%;  background: radial-gradient(circle at 35% 35%, rgba(0,255,200,0.35), rgba(0,255,200,0.05)); box-shadow: 0 0 20px rgba(0,255,200,0.4),  inset 0 0 12px rgba(0,255,200,0.15); animation-duration: 15s; animation-delay: 2.2s; }
+.bubble:nth-child(15) { width: 16px;  height: 16px;  left: 75%;  background: radial-gradient(circle at 35% 35%, rgba(0,200,255,0.65), rgba(0,200,255,0.05)); box-shadow: 0 0 8px  rgba(0,200,255,0.65), inset 0 0 5px rgba(0,200,255,0.2);  animation-duration: 6s;  animation-delay: 4.5s; }
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) translateX(0) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.9;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(30px) scale(1.1);
+    opacity: 0;
+  }
+}
+
+/* Wobble drift on each bubble */
+.bubble:nth-child(odd)  { animation-timing-function: ease-in-out; }
+.bubble:nth-child(even) { animation-timing-function: linear; }
+
+/* ── Form Card ── */
+.register-card {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 440px;
+  background: rgba(5, 5, 15, 0.8);
+  border: 1px solid rgba(0, 255, 200, 0.18);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow:
+    0 0 0 1px rgba(0, 255, 200, 0.05),
+    0 0 40px rgba(0, 255, 200, 0.08),
+    0 24px 80px rgba(0, 0, 0, 0.8);
+  animation: cardIn 0.6s cubic-bezier(0.23, 1, 0.32, 1) both;
+}
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(32px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Top neon accent line */
+.register-card::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 30px;
+  right: 30px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #00ffc8, #00c8ff, transparent);
+  border-radius: 2px;
+}
+
+/* ── Heading ── */
+.register-title {
+  font-family: 'Orbitron', monospace;
+  font-weight: 900;
+  font-size: 1.6rem;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-bottom: 0.4rem;
+  background: linear-gradient(90deg, #00ffc8, #00c8ff, #a855f7);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 10px rgba(0, 255, 200, 0.5));
+}
+
+.register-subtitle {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.35);
+  font-size: 0.82rem;
+  margin-bottom: 2rem;
+  letter-spacing: 0.5px;
+}
+
+/* ── Field Groups ── */
+.field-group {
+  margin-bottom: 1.3rem;
+}
+
+.field-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  color: rgba(0, 255, 200, 0.7);
+  margin-bottom: 0.45rem;
+}
+
+.field-input {
+  width: 100%;
+  padding: 11px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 255, 200, 0.15);
+  background: rgba(0, 255, 200, 0.03);
+  color: #fff;
+  font-size: 0.92rem;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+.field-input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
+}
+.field-input:focus {
+  border-color: rgba(0, 255, 200, 0.6);
+  background: rgba(0, 255, 200, 0.06);
+  box-shadow:
+    0 0 0 3px rgba(0, 255, 200, 0.08),
+    0 0 20px rgba(0, 255, 200, 0.12);
+}
+.field-input.ng-invalid.ng-dirty,
+.field-input.ng-invalid.ng-touched {
+  border-color: rgba(255, 50, 100, 0.55);
+  box-shadow: 0 0 12px rgba(255, 50, 100, 0.12);
+}
+
+/* ── Error Messages ── */
+.field-error {
+  margin-top: 0.4rem;
+  font-size: 0.78rem;
+  color: #ff3264;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.field-error::before {
+  content: '⚠';
+  font-size: 0.7rem;
+}
+
+/* ── Inline Notification ── */
+.inline-notification {
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(255, 50, 100, 0.08);
+  border: 1px solid rgba(255, 50, 100, 0.3);
+  color: #ff3264;
+  font-size: 0.84rem;
+  text-align: center;
+  margin-bottom: 1.2rem;
+}
+
+/* ── Submit Button ── */
+.btn-register {
+  width: 100%;
+  padding: 13px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 700;
+  font-family: 'Orbitron', monospace;
+  letter-spacing: 2px;
+  color: #000;
+  background: linear-gradient(135deg, #00ffc8 0%, #00c8ff 100%);
+  box-shadow: 0 0 20px rgba(0, 255, 200, 0.4);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+.btn-register::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -60%;
+  width: 50%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.25);
+  transform: skewX(-20deg);
+  transition: left 0.5s ease;
+}
+.btn-register:hover::before {
+  left: 130%;
+}
+.btn-register:hover {
+  box-shadow: 0 0 40px rgba(0, 255, 200, 0.65), 0 0 80px rgba(0, 200, 255, 0.25);
+  transform: translateY(-2px);
+}
+.btn-register:active {
+  transform: translateY(0);
+}
+
+/* ── Login Link ── */
+.login-link {
+  text-align: center;
+  margin-top: 1.4rem;
+  font-size: 0.83rem;
+  color: rgba(255, 255, 255, 0.35);
+}
+.login-link a {
+  color: #00ffc8;
+  text-decoration: none;
+  font-weight: 600;
+  transition: text-shadow 0.3s ease;
+}
+.login-link a:hover {
+  text-shadow: 0 0 10px #00ffc8;
+}

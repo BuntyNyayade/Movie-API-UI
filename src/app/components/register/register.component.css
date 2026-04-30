@@ -3,7 +3,7 @@
 
 /* ── Page Wrapper ── */
 .register-page {
-  min-height: 100vh;
+  min-height: 30vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,7 +11,7 @@
   position: relative;
   overflow: hidden;
   font-family: 'Inter', sans-serif;
-  padding-top: 80px;
+  padding-top: 30px;
 }
 
 /* Subtle neon grid overlay */
